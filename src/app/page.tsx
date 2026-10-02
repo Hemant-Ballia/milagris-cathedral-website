@@ -24,10 +24,17 @@ export default function Home() {
             muted
             loop
             playsInline
+            preload="auto"
             className={styles.heroVideo}
-            onCanPlay={() => {
+            onCanPlay={(e) => {
               (window as any).heroVideoReady = true;
               window.dispatchEvent(new Event('hero-video-ready'));
+              e.currentTarget.play().catch(() => {});
+            }}
+            onCanPlayThrough={(e) => {
+              (window as any).heroVideoReady = true;
+              window.dispatchEvent(new Event('hero-video-ready'));
+              e.currentTarget.play().catch(() => {});
             }}
             onError={() => {
               (window as any).heroVideoReady = true;
