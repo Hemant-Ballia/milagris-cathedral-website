@@ -25,6 +25,14 @@ export default function Home() {
             loop
             playsInline
             className={styles.heroVideo}
+            onCanPlay={() => {
+              (window as any).heroVideoReady = true;
+              window.dispatchEvent(new Event('hero-video-ready'));
+            }}
+            onError={() => {
+              (window as any).heroVideoReady = true;
+              window.dispatchEvent(new Event('hero-video-ready'));
+            }}
           >
             <source src="/videos/hero/Hero_new.mp4" type="video/mp4" />
           </video>

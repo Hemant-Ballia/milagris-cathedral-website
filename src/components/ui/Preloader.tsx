@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
 import styles from './Preloader.module.css';
 
 export default function Preloader() {
+  const pathname = usePathname();
   const [progress, setProgress] = useState('00');
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -66,7 +68,15 @@ export default function Preloader() {
             setProgress(val < 10 ? `0${val}` : `${val}`);
           }
         }, '<')
-        .to({}, { duration: 0.5 }); // stable moment
+        .to({}, { duration: 0.5 }) // stable moment
+        .add(() => {
+          if (pathname === '/') {
+            if (!(window as any).heroVideoReady) {
+              tl.pause();
+              window.addEventListener('hero-video-ready', () => tl.play(), { once: true });
+            }
+          }
+        });
       } else {
         // Continuous ambient ribbon movement
         if (ribbonAmberRef.current) {
@@ -147,6 +157,15 @@ export default function Preloader() {
         
         // 4. Stable moment holding at 100%
         tl.to({}, { duration: 0.6 });
+
+        tl.add(() => {
+          if (pathname === '/') {
+            if (!(window as any).heroVideoReady) {
+              tl.pause();
+              window.addEventListener('hero-video-ready', () => tl.play(), { once: true });
+            }
+          }
+        });
 
         // Phase 2: Stepped Block Wipe Out starts
         // Fade out Loading... text just as wipe starts
