@@ -1,0 +1,168 @@
+.section {
+  background-color: #F5F2EB;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.archiveWatermark {
+  padding-right: 6vw;
+  margin: 40px 0 20px;
+  text-align: right;
+  width: 100%;
+  font-family: var(--font-script), Georgia, serif;
+  font-size: 1.85rem;
+  line-height: 1.5;
+  color: rgba(20, 30, 45, 0.14);
+  font-weight: 400;
+  transform: rotate(-2deg);
+  white-space: pre-line;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.grid {
+  width: 100%;
+  padding: 0 0 140px;
+  display: grid;
+  grid-template-columns: 1fr 50vw;
+  align-items: center;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  padding-left: 4vw;
+  max-width: 560px;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: #3a4a5e;
+  margin-bottom: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  color: #0d0d0d;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.divider {
+  width: 45px;
+  height: 1px;
+  background-color: rgba(9, 37, 69, 0.3);
+  margin: 24px 0 32px;
+}
+
+.leadParagraph {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #111111;
+  margin-bottom: 22px;
+}
+
+.bodyParagraph {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #222222;
+  margin: 0;
+}
+
+.rightCol {
+  position: relative;
+  width: 100%;
+}
+
+.rightCollageWrapper {
+  position: relative;
+  width: 50vw;
+  min-height: 680px;
+  margin-left: auto;
+}
+
+.backCard {
+  position: absolute;
+  bottom: -110px;
+  right: 0;
+  width: 32vw;
+  height: 520px;
+  z-index: 1;
+  box-shadow: -12px 15px 35px rgba(0,0,0,0.1);
+}
+
+.backCardImage {
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.1) saturate(0.95);
+}
+
+.mainImageWrapper {
+  position: relative;
+  z-index: 2;
+  width: 45.5vw;
+  height: 590px;
+  margin-right: 2.5vw;
+  margin-left: auto;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.14);
+  overflow: hidden;
+}
+
+.mainImage {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mainImageWrapper:hover .mainImage {
+  transform: scale(1.03);
+}
+
+
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding: 60px 24px 100px;
+  }
+  .leftCol {
+    order: 1; 
+    padding: 0;
+    margin: 0 auto;
+  }
+  .heading {
+    white-space: normal;
+  }
+  .rightCol {
+    order: 2;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .rightCollageWrapper {
+    width: 100%;
+    min-height: 500px;
+    margin: 0 auto;
+  }
+  .backCard {
+    width: 80%;
+    height: 300px;
+    bottom: -60px;
+    right: 5%;
+  }
+  .mainImageWrapper {
+    width: 90%;
+    height: 420px;
+    margin: 0 auto;
+  }
+}

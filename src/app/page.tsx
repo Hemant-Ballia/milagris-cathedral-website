@@ -1,69 +1,80 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
+import styles from './page.module.css';
+import Navbar from '@/components/layout/Navbar';
+import LegacySection from '@/components/sections/LegacySection';
+import ClergySection from '@/components/sections/ClergySection';
+import CommunitySection from '@/components/sections/CommunitySection';
+import ExploreSection from '@/components/sections/ExploreSection';
+import GuestBookFooter from '@/components/sections/GuestBookFooter';
 
 export default function Home() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <Navbar />
+      
+      <div className={styles.homeContainer}>
+        {/* 2. Top Video Container */}
+        <div className={styles.videoContainer}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={styles.heroVideo}
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <source src="/videos/hero/Hero_new.mp4" type="video/mp4" />
+          </video>
+          <div className={styles.videoGradient}></div>
         </div>
+
+        {/* 3. Overlapping Circular Play Button & Label */}
+        <div className={styles.playButtonContainer}>
+          <div className={styles.hoverVideoPreview}>
+            <video src="/videos/hero/play_video.mp4" muted loop playsInline autoPlay className={styles.previewVideoElement} />
+          </div>
+          <button className={styles.playButtonOuter} onClick={() => setIsVideoOpen(true)}>
+            <div className={styles.playButtonInner}>
+              <svg viewBox="0 0 24 24" fill="#092545" className={styles.playIcon}>
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </button>
+          <span className={styles.playLabel}>EXPLORE THE SANCTUARY</span>
+        </div>
+
+        {/* 4. Bottom White Title Banner */}
+        <div className={styles.bottomBanner}>
+          <h2 className={styles.giantHeading}>OUR LADY OF MILAGRIS CATHEDRAL</h2>
+          <div className={styles.verticalHairline}></div>
+        </div>
+      </div>
+
+      <main>
+        <LegacySection />
+        <ClergySection />
+        <CommunitySection />
+        <ExploreSection />
+        <GuestBookFooter />
       </main>
-    </div>
+
+      {/* Full-Screen Video Modal */}
+      {isVideoOpen && (
+        <div className={styles.videoModalOverlay} onClick={() => setIsVideoOpen(false)}>
+          <button className={styles.closeBtn} onClick={() => setIsVideoOpen(false)}>✕ CLOSE</button>
+          <div className={styles.videoModalContent} onClick={e => e.stopPropagation()}>
+            <video 
+              src="/videos/hero/play_video.mp4" 
+              autoPlay 
+              controls 
+              className={styles.modalVideo} 
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

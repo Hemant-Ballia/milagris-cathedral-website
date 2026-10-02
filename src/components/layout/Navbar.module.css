@@ -1,0 +1,130 @@
+/* Navbar.module.css */
+.topHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.4s ease, border-bottom 0.4s ease;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brandTitle {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  line-height: 1;
+  margin: 0;
+  font-weight: 700;
+  transition: color 0.4s ease;
+}
+
+.scrolled .brandTitle {
+  color: #092545;
+}
+
+.brandSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
+  color: #ffffff;
+  margin-top: 4px;
+  margin-bottom: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+
+.scrolled .brandSubtitle {
+  color: #092545;
+}
+
+.headerCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerLogo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  transition: filter 0.4s ease, brightness 0.4s ease;
+}
+
+.scrolled .headerLogo {
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hamburgerBtn {
+  width: 32px;
+  height: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 60;
+  pointer-events: auto;
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  display: block;
+  transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.scrolled .hamburgerLine {
+  background-color: #092545;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .topHeader {
+    padding: 20px 24px;
+  }
+  .headerCenter {
+    display: none;
+  }
+  .brandTitle {
+    font-size: 1.5rem;
+    letter-spacing: 0.08em;
+  }
+  .brandSubtitle {
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+  }
+}

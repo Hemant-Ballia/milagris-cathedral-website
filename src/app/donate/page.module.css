@@ -1,0 +1,249 @@
+.pageContainer {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #002B5B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 540px;
+  background: #ffffff;
+  padding: 56px 48px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form State */
+.formState {
+  width: 100%;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.formState.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+  position: absolute;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #475569;
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup {
+  margin-bottom: 28px;
+}
+
+.label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: #1e293b;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  outline: none;
+  font-family: var(--font-sans);
+  background: transparent;
+  transition: border-color 0.3s ease;
+}
+
+.input::placeholder {
+  color: #94a3b8;
+}
+
+.input:focus {
+  border-bottom-color: #002855;
+}
+
+.currencyWrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  transition: border-color 0.3s ease;
+}
+
+.currencyWrapper:focus-within {
+  border-bottom-color: #002855;
+}
+
+.currency {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  color: #002855;
+  margin-right: 8px;
+}
+
+.amountInput {
+  border-bottom: none;
+  font-size: 1.4rem;
+  padding: 8px 0;
+}
+.amountInput:focus {
+  border-bottom: none;
+}
+
+/* Chrome, Safari, Edge, Opera hide arrows */
+.amountInput::-webkit-outer-spin-button,
+.amountInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox hide arrows */
+.amountInput[type=number] {
+  -moz-appearance: textfield;
+}
+
+.errorText {
+  color: #b91c1c;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.submitBtn {
+  background: #002855;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #0a3d7a;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Success State */
+.successState {
+  position: absolute;
+  width: 100%;
+  padding: 0 48px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.successState.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.blessTitle {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+}
+
+.blessText {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #111111;
+  margin-bottom: 24px;
+}
+
+.blessSubtext {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.returnBtn {
+  display: inline-block;
+  background: transparent;
+  color: #002855;
+  border: 1px solid #002855;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.returnBtn:hover {
+  background: #002855;
+  color: #ffffff;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .contentWrapper {
+    padding: 40px 24px;
+    min-height: 440px;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .successState {
+    padding: 0 24px;
+  }
+  .blessTitle {
+    font-size: 2.5rem;
+  }
+}

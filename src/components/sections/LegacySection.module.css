@@ -1,0 +1,195 @@
+.section {
+  background-color: #F5F2EB;
+  padding: 24px 24px 120px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.watermarkCenter {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(4.2rem, 8.5vw, 7.2rem);
+  color: rgba(9, 37, 69, 0.09);
+  letter-spacing: 0.03em;
+  will-change: transform;
+}
+
+.watermarkRight {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  width: 340px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  font-family: var(--font-script), Georgia, serif;
+  font-size: 1.85rem;
+  line-height: 1.5;
+  color: rgba(20, 30, 45, 0.14);
+  font-weight: 400;
+  transform: rotate(-2deg);
+  text-align: left;
+  white-space: pre-line;
+}
+
+.topImageWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageInnerContainer {
+  position: relative;
+  margin-top: 0;
+  width: 260px;
+  height: 340px;
+  z-index: 2;
+  will-change: transform;
+}
+
+.topImage {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.imageMask {
+  position: absolute;
+  inset: 0;
+  /* soft bottom/side fade mask */
+  background: linear-gradient(to bottom, transparent 60%, #F5F2EB 100%),
+              linear-gradient(to right, #F5F2EB 0%, transparent 20%, transparent 80%, #F5F2EB 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.mainHeading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  color: #0d0d0d;
+  text-align: center;
+  line-height: 1.1;
+  font-weight: 400;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.divider {
+  height: 1px;
+  width: 48px;
+  background-color: rgba(9, 37, 69, 0.3);
+  margin: 28px auto;
+}
+
+.textContainer {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.leadParagraph {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  line-height: 1.55;
+  text-align: center;
+  color: #111111;
+  margin-bottom: 28px;
+}
+
+.bodyParagraph {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: #222222;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.inlineLink {
+  color: #092545;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ctaButton {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ctaText {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  font-weight: 600;
+}
+
+.ctaIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  color: #0d0d0d;
+}
+
+.ctaIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 24px 16px 80px;
+  }
+  .watermarkCenter {
+    font-size: clamp(3rem, 12vw, 4rem);
+  }
+  .watermarkRight {
+    font-size: 1.2rem;
+    width: 260px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .imageInnerContainer {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    aspect-ratio: 260 / 340;
+  }
+  .mainHeading {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+  .leadParagraph {
+    font-size: 1.15rem;
+  }
+}

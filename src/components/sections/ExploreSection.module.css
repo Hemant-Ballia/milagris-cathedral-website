@@ -1,0 +1,205 @@
+.section {
+  background-color: #ffffff;
+  padding: 140px 0 0 0;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.mainHeading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 4.4rem);
+  color: #0d0d0d;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background-color: rgba(9, 37, 69, 0.2);
+  margin: 28px auto;
+}
+
+.description {
+  font-family: var(--font-sans);
+  max-width: 620px;
+  margin: 0 auto 48px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #1a1a1a;
+  font-weight: 300;
+}
+
+.ctaButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.ctaButton:hover {
+  opacity: 0.6;
+}
+
+.ctaText {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #0d0d0d;
+  font-weight: 400;
+}
+
+.ctaIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d0d0d;
+}
+
+.ctaIcon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Gallery Grid */
+.galleryPinWrapper {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 84px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.galleryGrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: max-content;
+  height: calc(100vh - 104px);
+  margin: 0 auto;
+  will-change: transform;
+}
+
+.fillImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  display: block;
+  transform: none !important;
+}
+
+.colFarLeft {
+  width: 11vw;
+  height: 52vh;
+  flex-shrink: 0;
+  align-self: flex-end;
+  overflow: hidden;
+  position: relative;
+}
+
+.colInnerLeft {
+  width: 15.5vw;
+  height: 80vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.colInnerLeftTop {
+  width: 100%;
+  height: 38%;
+  overflow: hidden;
+  position: relative;
+}
+.colInnerLeftBottom {
+  width: 100%;
+  height: calc(62% - 16px);
+  overflow: hidden;
+  position: relative;
+}
+
+.colCenter {
+  width: 42vw;
+  height: 70vh;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+}
+
+.colInnerRight {
+  width: 15.5vw;
+  height: 80vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.colInnerRightTop {
+  width: 100%;
+  height: calc(62% - 16px);
+  overflow: hidden;
+  position: relative;
+}
+.colInnerRightBottom {
+  width: 100%;
+  height: 38%;
+  overflow: hidden;
+  position: relative;
+}
+
+.colFarRight {
+  width: 11vw;
+  height: 52vh;
+  flex-shrink: 0;
+  align-self: flex-end;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 0 0 0;
+  }
+  .description {
+    font-size: 0.95rem;
+  }
+  .galleryGrid {
+    gap: 1vw;
+  }
+  .colFarLeft, .colFarRight {
+    width: 9vw;
+  }
+  .colInnerLeft, .colInnerRight {
+    width: 15vw;
+  }
+  .colCenter {
+    width: 38vw;
+  }
+}

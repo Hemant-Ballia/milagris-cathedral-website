@@ -1,0 +1,352 @@
+.homeContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* 1. Top Transparent Header Overlay */
+.topHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brandTitle {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  line-height: 1;
+  margin: 0;
+  font-weight: 700;
+}
+
+.brandSubtitle {
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
+  color: #ffffff;
+  margin-top: 4px;
+  margin-bottom: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.headerCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerLogo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hamburgerBtn {
+  width: 32px;
+  height: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 60;
+  pointer-events: auto;
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* 2. Top Video Container */
+.videoContainer {
+  height: 68vh;
+  flex-shrink: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videoGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 60%, transparent 100%);
+  pointer-events: none;
+}
+
+/* 3. Overlapping Circular Play Button & Label */
+.playButtonContainer {
+  position: relative;
+  z-index: 25;
+  margin-top: -34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hoverVideoPreview {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%) scale(0.25);
+  width: 280px;
+  height: 260px;
+  border-radius: 0 0 140px 140px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+}
+
+.previewVideoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playButtonOuter {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: transform 0.4s ease;
+  z-index: 5;
+}
+
+.playButtonContainer:hover .hoverVideoPreview {
+  transform: translate(-50%, -48%) scale(1);
+  opacity: 1;
+}
+
+.playButtonContainer:hover .playButtonOuter {
+  transform: scale(1.05);
+}
+
+.playButtonInner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.35s ease, transform 0.35s ease;
+}
+
+.playButtonContainer:hover .playButtonInner {
+  background-color: #ffffff;
+  transform: scale(1.05);
+}
+
+.playIcon {
+  width: 18px;
+  height: 18px;
+  margin-left: 3px;
+}
+
+.playLabel {
+  margin-top: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #092545;
+  text-transform: uppercase;
+  line-height: 1;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.playButtonContainer:hover .playLabel {
+  opacity: 0;
+}
+
+/* 4. Bottom White Title Banner */
+.bottomBanner {
+  height: 32vh;
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 24px 20px;
+}
+
+.giantHeading {
+  font-family: var(--font-serif), 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #050505;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-top: 26px;
+  margin-bottom: 24px;
+  white-space: nowrap;
+  text-align: center;
+  transform: scaleY(1.12);
+}
+
+.verticalHairline {
+  width: 1px;
+  height: 48px;
+  background-color: rgba(11, 34, 64, 0.35);
+  margin: 0 auto 32px auto;
+}
+
+/* Video Modal */
+.videoModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(5, 12, 24, 0.94);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 32px;
+  right: 40px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 2010;
+}
+
+.closeBtn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.videoModalContent {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Responsiveness for mobile */
+@media (max-width: 768px) {
+  /* 1. Mobile Header */
+  .topHeader {
+    padding: 20px 24px;
+  }
+  .headerCenter {
+    display: none;
+  }
+  .brandTitle {
+    font-size: 1.5rem;
+    letter-spacing: 0.08em;
+  }
+  .brandSubtitle {
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+  }
+
+  /* 2. Mobile Video & White Section Split */
+  .videoContainer {
+    height: 56vh;
+  }
+  .bottomBanner {
+    height: 44vh;
+    padding: 0 20px 16px;
+  }
+
+  /* 3. Mobile Main Heading (3-Line Stack) */
+  .giantHeading {
+    white-space: normal;
+    max-width: 320px;
+    font-size: clamp(1.85rem, 7.8vw, 2.35rem);
+    line-height: 1.08;
+    letter-spacing: 0.02em;
+    text-align: center;
+    margin: auto 0;
+    word-break: keep-all;
+  }
+  .verticalHairline {
+    height: 44px;
+    background-color: rgba(0,0,0,0.3);
+  }
+
+  /* 4. Play Button Adjustments */
+  .playButtonOuter {
+    width: 64px;
+    height: 64px;
+    margin-top: -32px;
+  }
+  .playLabel {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,472 @@
+.guestBookStage {
+  position: relative;
+  width: 100%;
+  height: 740px;
+  background-color: #002B5B;
+  overflow: hidden;
+}
+
+/* Left Area: Names Wall */
+.namesWallContainer {
+  position: absolute;
+  top: 0;
+  left: 3.2vw;
+  width: 36vw;
+  height: 620px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 44px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 80%, transparent 100%);
+}
+
+.colUp {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  animation: scrollUp 34s linear infinite;
+  will-change: transform;
+}
+
+.colDown {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  animation: scrollDown 34s linear infinite;
+  will-change: transform;
+}
+
+.colUp:hover, .colDown:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+.entry {
+  display: flex;
+  flex-direction: column;
+}
+
+.entryName {
+  font-family: var(--font-serif);
+  font-size: 2.05rem;
+  font-weight: 400;
+  color: #567FA8;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+
+.entryLocation {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: #497199;
+  margin-bottom: 44px;
+}
+
+/* Giant Cursive Watermark */
+.guestbookWatermark {
+  position: absolute;
+  bottom: -15px;
+  left: 5vw;
+  z-index: 4;
+  pointer-events: none;
+  font-family: var(--font-script), serif;
+  font-size: clamp(7.5rem, 13vw, 12.8rem);
+  color: #3A6087;
+  opacity: 0.65;
+  line-height: 0.85;
+  white-space: nowrap;
+}
+
+/* Center White Form Card */
+.whiteFormCard {
+  position: absolute;
+  top: 115px;
+  right: 30vw; /* Flush with the left edge of the 30vw right image! */
+  width: 40vw;
+  min-width: 460px;
+  max-width: 560px;
+  background: #ffffff;
+  padding: 56px 52px 52px;
+  box-sizing: border-box;
+  z-index: 10;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+}
+
+.formHeading {
+  font-family: var(--font-serif);
+  font-size: 2.75rem;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 28px 0;
+  letter-spacing: -0.01em;
+}
+
+.formGroup {
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.formLabel {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: #1e293b;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.formInput {
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  outline: none;
+  font-family: var(--font-sans);
+  background: transparent;
+  margin-bottom: 26px;
+}
+.formInput::placeholder {
+  color: #94a3b8;
+}
+.formInput:focus {
+  border-bottom-color: #002855;
+}
+
+.verificationBox {
+  width: 250px;
+  height: 64px;
+  background: #f9f9f9;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.recapchaLogo {
+  width: 24px;
+  height: 24px;
+  opacity: 0.5;
+}
+
+.submitBtn {
+  background: #002855;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-size: 0.88rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.submitBtn:hover {
+  background: #0a3d7a;
+}
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  margin-top: 16px;
+  color: #15803d;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.errorMessage {
+  margin-top: 16px;
+  color: #b91c1c;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Right Edge Image */
+.rightBookImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30vw;
+  height: 700px;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.rightImage {
+  object-fit: cover;
+}
+
+/* 2. Grand Cathedral Footer */
+.footerArea {
+  background-color: #002248;
+  padding: 90px 3.5vw 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.footerTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.85vw, 5.1rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  transform: scaleY(1.12);
+  white-space: nowrap;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.footerDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.16);
+  margin-bottom: 64px;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 1.1fr 0.9fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 90px;
+}
+
+.formCard, .guestbookWatermark, .footerTitle, .footerDivider {
+  opacity: 0; /* GSAP initial state */
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerLogoWrapper {
+  width: 210px;
+  height: 210px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerLogoWrapper::before {
+  content: '';
+  width: 205px;
+  height: 205px;
+  border-radius: 50%;
+  border: 1px dashed rgba(145, 185, 225, 0.28);
+  position: absolute;
+  animation: slowSpin 28s linear infinite;
+}
+
+.footerLogoWrapper::after {
+  content: '';
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
+}
+
+@keyframes slowSpin {
+  100% { transform: rotate(360deg); }
+}
+
+.footerLogo {
+  width: 190px;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35));
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+}
+
+.footerLogoWrapper:hover .footerLogo {
+  transform: scale(1.07);
+  filter: drop-shadow(0 14px 32px rgba(212, 175, 55, 0.35));
+}
+
+.colContact, .colNav, .colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactText, .navLink, .extLink {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.colNav {
+  gap: 16px;
+  text-transform: uppercase;
+}
+
+.colLinks {
+  gap: 16px;
+  text-transform: uppercase;
+}
+
+.navLink {
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.navLink:hover {
+  opacity: 0.6;
+}
+
+.extLink {
+  text-decoration: none;
+  transition: opacity 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.extLink:hover {
+  opacity: 0.6;
+  transform: translateX(4px);
+}
+
+.socialIcons {
+  margin-top: 32px;
+  display: flex;
+  gap: 18px;
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  transition: opacity 0.3s;
+}
+.socialIcon:hover {
+  opacity: 0.6;
+}
+
+/* Bottom Copyright Bar */
+.copyrightBar {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: 28px;
+}
+
+.copyrightText {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .whiteFormCard {
+    width: 45vw;
+    right: 25vw;
+    min-width: 400px;
+    padding: 40px 32px;
+  }
+  .rightBookImage {
+    width: 25vw;
+  }
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .guestBookStage {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .namesWallContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    z-index: 1;
+  }
+  .rightBookImage {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    order: 1;
+  }
+  .whiteFormCard {
+    position: relative;
+    width: 90%;
+    right: auto;
+    top: auto;
+    margin: -120px auto 60px;
+    order: 2;
+    z-index: 10;
+    min-width: 0;
+    padding: 32px 24px;
+  }
+  .guestbookWatermark {
+    font-size: clamp(3rem, 15vw, 5rem);
+    top: 300px;
+    bottom: auto;
+    z-index: 0;
+  }
+  .footerArea {
+    order: 3;
+    padding: 60px 24px 30px;
+  }
+  .footerGrid {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+  .footerLogoWrapper {
+    margin: 0 auto;
+  }
+  .footerTitle {
+    white-space: normal;
+    text-align: center;
+    font-size: 2.2rem;
+  }
+}

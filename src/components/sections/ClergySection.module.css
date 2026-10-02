@@ -1,0 +1,158 @@
+.section {
+  background-color: #F5F2EB;
+  width: 100%;
+}
+
+.grid {
+  width: 100%;
+  padding: 80px 0;
+  display: grid;
+  grid-template-columns: 46vw 1fr;
+  align-items: center;
+}
+
+.leftCol {
+  position: relative;
+  width: 100%;
+  padding-left: 0;
+}
+
+.leftCollage {
+  position: relative;
+  width: 46vw;
+  min-height: 700px;
+}
+
+.backCard1 {
+  position: absolute;
+  top: 0;
+  left: 6vw;
+  width: 32vw;
+  height: 400px;
+  background-color: #cbd6e2;
+  z-index: 1;
+}
+
+.backCard2 {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 38vw;
+  height: 660px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(95%);
+  z-index: 2;
+}
+
+.mainImage {
+  position: relative;
+  margin-top: 90px;
+  margin-left: 2.5vw;
+  width: 41vw;
+  height: 620px;
+  object-fit: cover;
+  z-index: 3;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+.legacyScript {
+  position: absolute;
+  top: -45px;
+  left: 3.5vw;
+  z-index: 4;
+  font-family: var(--font-script), serif;
+  font-size: clamp(5rem, 7.5vw, 7rem);
+  color: rgba(90, 105, 120, 0.22);
+  pointer-events: none;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 6vw 0 4vw;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  color: #0d0d0d;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.divider {
+  width: 45px;
+  height: 1px;
+  background-color: rgba(9, 37, 69, 0.3);
+  margin: 24px 0 32px;
+}
+
+.leadParagraph {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #111111;
+  margin-bottom: 22px;
+}
+
+.bodyParagraph {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #222222;
+  margin: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    padding: 60px 24px;
+  }
+  .leftCol {
+    padding-left: 0;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .leftCollage {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+  }
+  .backCard1 {
+    width: 80%;
+    height: 300px;
+    left: 10%;
+  }
+  .backCard2 {
+    width: 90%;
+    height: 400px;
+    left: 5%;
+    top: 40px;
+  }
+  .mainImage {
+    width: 95%;
+    height: 420px;
+    margin-left: 0;
+    margin-top: 80px;
+  }
+  .legacyScript {
+    left: 5%;
+    top: -20px;
+  }
+  .rightCol {
+    padding: 0;
+    margin: 0 auto;
+  }
+  .heading {
+    font-size: 2.2rem;
+    white-space: normal;
+  }
+}
