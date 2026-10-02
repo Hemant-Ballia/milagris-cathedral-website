@@ -34,7 +34,7 @@ export default function Home() {
               window.dispatchEvent(new Event('hero-video-ready'));
             }}
           >
-            <source src={process.env.NEXT_PUBLIC_HERO_VIDEO_URL || "/videos/hero/Hero_new.mp4"} type="video/mp4" />
+            <source src="/videos/hero/Hero_new_web.mp4" type="video/mp4" />
           </video>
           <div className={styles.videoGradient}></div>
         </div>
